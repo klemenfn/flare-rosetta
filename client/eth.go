@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ava-labs/coreth/ethclient"
 	"github.com/ethereum/go-ethereum/eth/tracers"
+	"github.com/flare-foundation/coreth/ethclient"
 )
 
 var (

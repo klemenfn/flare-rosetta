@@ -7,9 +7,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/avalanche-rosetta/mapper"
-	mocks "github.com/ava-labs/avalanche-rosetta/mocks/client"
-	"github.com/ava-labs/coreth/interfaces"
+	"github.com/flare-foundation/coreth/interfaces"
+	"github.com/flare-foundation/flare-rosetta/mapper"
+	mocks "github.com/flare-foundation/flare-rosetta/mocks/client"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 	"github.com/ethereum/go-ethereum/common"
@@ -146,8 +146,8 @@ func TestPreprocessMetadata(t *testing.T) {
 	ctx := context.Background()
 	client := &mocks.Client{}
 	networkIdentifier := &types.NetworkIdentifier{
-		Network:    "Fuji",
-		Blockchain: "Avalanche",
+		Network:    "Songbird",
+		Blockchain: "Flare",
 	}
 	service := ConstructionService{
 		config: &Config{Mode: ModeOnline},

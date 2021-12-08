@@ -8,8 +8,8 @@ import (
 
 	ethcommon "github.com/ethereum/go-ethereum/common"
 
-	"github.com/ava-labs/avalanche-rosetta/client"
-	"github.com/ava-labs/avalanche-rosetta/mapper"
+	"github.com/flare-foundation/flare-rosetta/client"
+	"github.com/flare-foundation/flare-rosetta/mapper"
 )
 
 // AccountService implements the /account/* endpoints

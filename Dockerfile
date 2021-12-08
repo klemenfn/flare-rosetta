@@ -1,29 +1,29 @@
 # ------------------------------------------------------------------------------
-# Build avalanche
+# Build flare
 # ------------------------------------------------------------------------------
-FROM golang:1.17 AS avalanche
+FROM golang:1.17 AS flare
 
-ARG AVALANCHE_VERSION
+ARG FLARE_VERSION
 
-RUN git clone https://github.com/ava-labs/avalanchego.git \
-  /go/src/github.com/ava-labs/avalanchego
+RUN git clone https://github.com/flare-foundation/flare.git \
+  /go/src/github.com/flare-foundation/flare
 
-WORKDIR /go/src/github.com/ava-labs/avalanchego
+WORKDIR /go/src/github.com/flare-foundation/flare
 
-RUN git checkout $AVALANCHE_VERSION && \
+RUN git checkout $FLARE_VERSION && \
     ./scripts/build.sh
 
 # ------------------------------------------------------------------------------
-# Build avalanche rosetta
+# Build flare rosetta
 # ------------------------------------------------------------------------------
 FROM golang:1.17 AS rosetta
 
 ARG ROSETTA_VERSION
 
-RUN git clone https://github.com/ava-labs/avalanche-rosetta.git \
-  /go/src/github.com/ava-labs/avalanche-rosetta
+RUN git clone https://github.com/flare-foundation/flare-rosetta.git \
+  /go/src/github.com/flare-foundation/flare-rosetta
 
-WORKDIR /go/src/github.com/ava-labs/avalanche-rosetta
+WORKDIR /go/src/github.com/flare-foundation/flare-rosetta
 
 ENV CGO_ENABLED=1
 ENV GOARCH=amd64
@@ -48,29 +48,29 @@ RUN apt-get update -y && \
 
 WORKDIR /app
 
-# Install avalanche daemon
-COPY --from=avalanche \
-  /go/src/github.com/ava-labs/avalanchego/build/avalanchego \
-  /app/avalanchego
+# Install flare daemon
+COPY --from=flare \
+  /go/src/github.com/flare-foundation/flare/build/flare \
+  /app/flare
 
 # Install evm plugin
-COPY --from=avalanche \
-  /go/src/github.com/ava-labs/avalanchego/build/plugins/evm \
+COPY --from=flare \
+  /go/src/github.com/flare-foundation/flare/build/plugins/evm \
   /app/plugins/evm
 
 # Install rosetta server
 COPY --from=rosetta \
-  /go/src/github.com/ava-labs/avalanche-rosetta/rosetta-server \
+  /go/src/github.com/flare-foundation/flare-rosetta/rosetta-server \
   /app/rosetta-server
 
 # Install rosetta runner
 COPY --from=rosetta \
-  /go/src/github.com/ava-labs/avalanche-rosetta/rosetta-runner \
+  /go/src/github.com/flare-foundation/flare-rosetta/rosetta-runner \
   /app/rosetta-runner
 
 # Install service start script
 COPY --from=rosetta \
-  /go/src/github.com/ava-labs/avalanche-rosetta/docker/entrypoint.sh \
+  /go/src/github.com/flare-foundation/flare-rosetta/docker/entrypoint.sh \
   /app/entrypoint.sh
 
 EXPOSE 9650

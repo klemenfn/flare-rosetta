@@ -4,9 +4,9 @@ import (
 	"context"
 	"math/big"
 
-	ethtypes "github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/interfaces"
 	ethcommon "github.com/ethereum/go-ethereum/common"
+	ethtypes "github.com/flare-foundation/coreth/core/types"
+	"github.com/flare-foundation/coreth/interfaces"
 )
 
 const (
@@ -41,7 +41,7 @@ type client struct {
 	*InfoClient
 }
 
-// NewClient returns a new client for Avalanche APIs
+// NewClient returns a new client for Flare APIs
 func NewClient(endpoint string) (Client, error) {
 	eth, err := NewEthClient(endpoint)
 	if err != nil {

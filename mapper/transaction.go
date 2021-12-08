@@ -6,11 +6,11 @@ import (
 	"reflect"
 	"strings"
 
-	ethtypes "github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/plugin/evm"
 	"github.com/coinbase/rosetta-sdk-go/types"
+	ethtypes "github.com/flare-foundation/coreth/core/types"
+	"github.com/flare-foundation/coreth/plugin/evm"
 
-	"github.com/ava-labs/avalanche-rosetta/client"
+	"github.com/flare-foundation/flare-rosetta/client"
 )
 
 var (

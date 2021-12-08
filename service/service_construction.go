@@ -10,14 +10,14 @@ import (
 	"github.com/coinbase/rosetta-sdk-go/server"
 	"github.com/coinbase/rosetta-sdk-go/types"
 
-	ethtypes "github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/interfaces"
 	"github.com/ethereum/go-ethereum/common"
 	ethcommon "github.com/ethereum/go-ethereum/common"
 	ethcrypto "github.com/ethereum/go-ethereum/crypto"
+	ethtypes "github.com/flare-foundation/coreth/core/types"
+	"github.com/flare-foundation/coreth/interfaces"
 
-	"github.com/ava-labs/avalanche-rosetta/client"
-	"github.com/ava-labs/avalanche-rosetta/mapper"
+	"github.com/flare-foundation/flare-rosetta/client"
+	"github.com/flare-foundation/flare-rosetta/mapper"
 )
 
 // ConstructionService implements /construction/* endpoints
@@ -91,7 +91,7 @@ func (s ConstructionService) ConstructionMetadata(
 	if input.GasLimit == nil {
 		if len(input.To) == 0 || input.Value == nil {
 			// We guard against malformed inputs that may have been generated using
-			// a previous version of avalanche-rosetta.
+			// a previous version of flare-rosetta.
 			gasLimit = transferGasLimit
 		} else {
 			to := common.HexToAddress(input.To)

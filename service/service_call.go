@@ -7,7 +7,7 @@ import (
 	"github.com/coinbase/rosetta-sdk-go/server"
 	"github.com/coinbase/rosetta-sdk-go/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ava-labs/avalanche-rosetta/client"
+	"github.com/flare-foundation/flare-rosetta/client"
 )
 
 // CallService implements /call/* endpoints

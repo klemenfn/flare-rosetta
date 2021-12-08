@@ -1,31 +1,23 @@
-<div align="center">
-  <img src="resources/AvalancheLogoRed.png?raw=true">
-</div>
+# Flare Rosetta
 
----
-
-# Avalanche Rosetta
-
-[Rosetta][1] server implementation for [Avalanche][2] C-Chain.
+[Rosetta][1] server implementation for the [Flare][2] Network.
 
 ## Requirements
 
-In order to run the Avalanche Rosetta server you will need access to [Avalanche][3]
-services via RPC. More info in available APIs found [here][4].
+In order to run the Flare Rosetta server you will need access to a Flare node's JSON RPC API.
 
-See AvalancheGo documentation on how to run the chain node locally. If you don't run
-the Avalanche node yourself you might use the [hosted API provided by Ava Labs][5].
+Please check out the [Flare repository](https://github.com/flare-foundation/flare) to learn how to run a Flare node.
 
 ## Installation
 
-Clone repository, then build the rosetta server by running the following commands:
+Clone the repository, then build the Rosetta server by running the following commands:
 
 ```bash
 make setup
 make build
 ```
 
-If successful, you will have `rosetta-server` binary in your current directory.
+If successful, you will find the `rosetta-server` binary in your current directory.
 
 ## Usage
 
@@ -33,7 +25,7 @@ Before you start running the server you need to create a configuration file:
 
 ```json
 {
-  "rpc_endpoint": "https://api.avax-test.network",
+  "rpc_endpoint": "http://localhost:9650",
   "mode": "online",
   "listen_addr": "0.0.0.0:8080"
 }
@@ -44,6 +36,7 @@ Start the server by running the following command:
 ```bash
 ./rosetta-server -config=./config.json
 ```
+
 ## Configuration
 
 Full configuration example:
@@ -53,8 +46,8 @@ Full configuration example:
   "mode": "online",
   "rpc_endpoint": "http://localhost:9650",
   "listen_addr": "0.0.0.0:8080",
-  "network_name": "Fuji",
-  "chain_id": 43113,
+  "network_name": "Songbird",
+  "chain_id": 19,
   "log_requests": true
 }
 ```
@@ -63,12 +56,12 @@ Where:
 
 | Name          | Type    | Default | Description
 |---------------|---------|---------|-------------------------------------------
-| mode          | string  | `online` | Mode of operations. One of: `online`, `offline`
-| rpc_endpoint  | string  | `http://localhost:9650` | Avalanche RPC endpoint
-| listen_addr   | string  | `http://localhost:8080` | Rosetta server listen address (host/port)
-| network_name  | string  | - | Avalanche network name
-| chain_id      | integer | - | Avalanche C-Chain ID
-| log_requests  | bool    | `false` | Enable request body logging
+| mode          | string  | `online` | Mode of operations. One of: `online`, `offline`.
+| rpc_endpoint  | string  | `http://localhost:9650` | Flare RPC endpoint.
+| listen_addr   | string  | `http://localhost:8080` | Rosetta server listen address (host/port).
+| network_name  | string  | - | Flare network name. Should be `Songbird`.
+| chain_id      | integer | - | Flare chain ID. `19` for Songbird.
+| log_requests  | bool    | `false` | Enable request body logging.
 
 ### RPC Endpoints
 
@@ -110,7 +103,7 @@ Available commands:
 
 ## Testing Rosetta
 
-Rosetta implementaion could be testing using the Rosetta CLI.
+The Rosetta implementation can be tested using the Rosetta CLI.
 
 Before we can start the service, we need to build the docker image:
 
@@ -139,9 +132,3 @@ make check-testnet-construction
 ## License
 
 BSD 3-Clause
-
-[1]: https://www.rosetta-api.org/
-[2]: https://www.avalabs.org/
-[3]: https://github.com/ava-labs/avalanchego
-[4]: https://docs.avax.network/build/avalanchego-apis
-[5]: https://docs.avax.network/build/tools/public-api

@@ -5,11 +5,11 @@ import (
 	"errors"
 	"os"
 
-	"github.com/ava-labs/avalanche-rosetta/service"
+	"github.com/flare-foundation/flare-rosetta/service"
 )
 
 var (
-	errMissingRPC           = errors.New("avalanche rpc endpoint is not provided")
+	errMissingRPC           = errors.New("flare rpc endpoint is not provided")
 	errInvalidMode          = errors.New("invalid rosetta mode")
 	errGenesisBlockRequired = errors.New("genesis block hash is not provided")
 )

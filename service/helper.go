@@ -6,12 +6,12 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/ava-labs/avalanche-rosetta/client"
 	"github.com/coinbase/rosetta-sdk-go/types"
+	"github.com/flare-foundation/flare-rosetta/client"
 
-	ethtypes "github.com/ava-labs/coreth/core/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethcommon "github.com/ethereum/go-ethereum/common"
+	ethtypes "github.com/flare-foundation/coreth/core/types"
 )
 
 const (

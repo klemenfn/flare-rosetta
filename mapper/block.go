@@ -1,8 +1,8 @@
 package mapper
 
 import (
-	corethTypes "github.com/ava-labs/coreth/core/types"
 	"github.com/ethereum/go-ethereum/common/hexutil"
+	corethTypes "github.com/flare-foundation/coreth/core/types"
 )
 
 // BlockMetadata returns meta data for a block

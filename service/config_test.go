@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"testing"
 
-	ethtypes "github.com/ava-labs/coreth/core/types"
 	"github.com/coinbase/rosetta-sdk-go/types"
+	ethtypes "github.com/flare-foundation/coreth/core/types"
 	"github.com/stretchr/testify/assert"
 )
 
