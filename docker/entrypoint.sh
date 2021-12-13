@@ -3,7 +3,7 @@
 export FLARE_NETWORK=${FLARE_NETWORK:-songbird}
 export FLARE_CHAIN=${FLARE_CHAIN:-19}
 export FLARE_MODE=${FLARE_MODE:-online}
-export FLARE_GENESIS_HASH=${FLARE_GENESIS_HASH:-"0x31ced5b9beb7f8782b014660da0cb18cc409f121f408186886e1ca3e8eeca96b"}
+export FLARE_GENESIS_HASH=${FLARE_GENESIS_HASH:-"0x703ccf62df9fa51265d239a6bb8afb6f2fff2831dac0c2df6208dd254a57585b"}
 
 cat <<EOF > /app/flare-config.json
 {

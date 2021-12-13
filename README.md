@@ -60,7 +60,7 @@ Where:
 | rpc_endpoint  | string  | `http://localhost:9650` | Flare RPC endpoint.
 | listen_addr   | string  | `http://localhost:8080` | Rosetta server listen address (host/port).
 | network_name  | string  | - | Flare network name. Should be `Songbird`.
-| chain_id      | integer | - | Flare chain ID. `19` for Songbird.
+| chain_id      | integer | - | Flare chain ID. Should be `19`.
 | log_requests  | bool    | `false` | Enable request body logging.
 
 ### RPC Endpoints

@@ -13,17 +13,17 @@ func Amount(value *big.Int, currency *types.Currency) *types.Amount {
 	}
 	return &types.Amount{
 		Value:    value.String(),
-		Currency: AvaxCurrency,
+		Currency: currency,
 	}
 }
 
 func FeeAmount(value int64) *types.Amount {
 	return &types.Amount{
 		Value:    strconv.FormatInt(value, 10), //nolint:gomnd
-		Currency: AvaxCurrency,
+		Currency: ActiveCurrency,
 	}
 }
 
-func AvaxAmount(value *big.Int) *types.Amount {
-	return Amount(value, AvaxCurrency)
+func ActiveAmount(value *big.Int) *types.Amount {
+	return Amount(value, ActiveCurrency)
 }

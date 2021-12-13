@@ -284,7 +284,7 @@ func (s ConstructionService) ConstructionParse(
 			},
 			Amount: &types.Amount{
 				Value:    new(big.Int).Neg(tx.Value).String(),
-				Currency: mapper.AvaxCurrency,
+				Currency: mapper.ActiveCurrency,
 			},
 		},
 		{
@@ -302,7 +302,7 @@ func (s ConstructionService) ConstructionParse(
 			},
 			Amount: &types.Amount{
 				Value:    tx.Value.String(),
-				Currency: mapper.AvaxCurrency,
+				Currency: mapper.ActiveCurrency,
 			},
 		},
 	}
@@ -363,7 +363,7 @@ func (s ConstructionService) ConstructionPayloads(
 				Amount: &parser.AmountDescription{
 					Exists:   true,
 					Sign:     parser.NegativeAmountSign,
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.ActiveCurrency,
 				},
 			},
 			{
@@ -374,7 +374,7 @@ func (s ConstructionService) ConstructionPayloads(
 				Amount: &parser.AmountDescription{
 					Exists:   true,
 					Sign:     parser.PositiveAmountSign,
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.ActiveCurrency,
 				},
 			},
 		},
@@ -470,7 +470,7 @@ func (s ConstructionService) ConstructionPreprocess(
 				Amount: &parser.AmountDescription{
 					Exists:   true,
 					Sign:     parser.NegativeAmountSign,
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.ActiveCurrency,
 				},
 			},
 			{
@@ -481,7 +481,7 @@ func (s ConstructionService) ConstructionPreprocess(
 				Amount: &parser.AmountDescription{
 					Exists:   true,
 					Sign:     parser.PositiveAmountSign,
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.ActiveCurrency,
 				},
 			},
 		},

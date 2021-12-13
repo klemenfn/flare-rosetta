@@ -5,11 +5,11 @@ import (
 )
 
 const (
-	MainnetChainID = 43114
-	MainnetAssetID = "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z"
+	FlareChainID = 14
+	FlareAssetID = "foMCFvzKECiGVJmmkAEHm9Vt43hYjuxreiNX5PfqfecaVsZBT"
 
-	FujiChainID = 43113
-	FujiAssetID = "U8iRqJoiJm8xZHAacmvYyZVwqQx6uDNtQeP3CQ6fcgQk3JqnK"
+	SongbirdChainID = 19
+	SongbirdAssetID = "1S3PSi4VsVpD8iK2vdykuajxVeuCV2xhjPSkQ4K88mqWGozMP"
 
 	OpCall         = "CALL"
 	OpFee          = "FEE"
@@ -38,10 +38,17 @@ var (
 		Stage:  types.String("SYNCED"),
 	}
 
-	AvaxCurrency = &types.Currency{
-		Symbol:   "AVAX",
+	FlareCurrency = &types.Currency{
+		Symbol:   "FLR",
 		Decimals: 18, //nolint:gomnd
 	}
+
+	SongbirdCurrency = &types.Currency{
+		Symbol:   "SGB",
+		Decimals: 18, //nolint:gomnd
+	}
+
+	ActiveCurrency *types.Currency
 
 	OperationStatuses = []*types.OperationStatus{
 		{

@@ -75,10 +75,12 @@ func main() {
 
 	var assetID string
 	switch cfg.ChainID {
-	case mapper.MainnetChainID:
-		assetID = mapper.MainnetAssetID
-	case mapper.FujiChainID:
-		assetID = mapper.FujiAssetID
+	case mapper.FlareChainID:
+		assetID = mapper.FlareAssetID
+		mapper.ActiveCurrency = mapper.FlareCurrency
+	case mapper.SongbirdChainID:
+		assetID = mapper.SongbirdAssetID
+		mapper.ActiveCurrency = mapper.SongbirdCurrency
 	default:
 		log.Fatal("invalid ChainID:", cfg.ChainID)
 	}
@@ -130,7 +132,7 @@ func main() {
 	router := server.CorsMiddleware(handler)
 
 	log.Printf(
-		`using avax (chain=%q chainid="%d" network=%q) rpc endpoint: %v`,
+		`using flare (chain=%q chainid="%d" network=%q) rpc endpoint: %v`,
 		service.BlockchainName,
 		cfg.ChainID,
 		cfg.NetworkName,

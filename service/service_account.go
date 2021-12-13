@@ -70,7 +70,7 @@ func (s AccountService) AccountBalance(
 			Hash:  header.Hash().String(),
 		},
 		Balances: []*types.Amount{
-			mapper.AvaxAmount(balance),
+			mapper.ActiveAmount(balance),
 		},
 		Metadata: metadataMap,
 	}

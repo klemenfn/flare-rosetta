@@ -40,7 +40,7 @@ func Transaction(
 			Type:    OpFee,
 			Status:  types.String(StatusSuccess),
 			Account: Account(&sender),
-			Amount:  AvaxAmount(new(big.Int).Neg(txFee)),
+			Amount:  ActiveAmount(new(big.Int).Neg(txFee)),
 		},
 		{
 			OperationIdentifier: &types.OperationIdentifier{
@@ -54,7 +54,7 @@ func Transaction(
 			Type:    OpFee,
 			Status:  types.String(StatusSuccess),
 			Account: Account(feeReceiver),
-			Amount:  AvaxAmount(txFee),
+			Amount:  ActiveAmount(txFee),
 		},
 	}
 
@@ -127,7 +127,7 @@ func CrossChainTransactions(
 				},
 				Amount: &types.Amount{
 					Value:    new(big.Int).Mul(new(big.Int).SetUint64(out.Amount), x2crate).String(),
-					Currency: AvaxCurrency,
+					Currency: ActiveCurrency,
 				},
 				Metadata: map[string]interface{}{
 					"tx_ids":        txIDs,
@@ -158,7 +158,7 @@ func CrossChainTransactions(
 				},
 				Amount: &types.Amount{
 					Value:    new(big.Int).Mul(new(big.Int).SetUint64(in.Amount), new(big.Int).Neg(x2crate)).String(),
-					Currency: AvaxCurrency,
+					Currency: ActiveCurrency,
 				},
 				Metadata: map[string]interface{}{
 					"blockchain_id":     t.BlockchainID.String(),
@@ -250,7 +250,7 @@ func traceOps(trace []*client.FlatCall, startIndex int) []*types.Operation {
 				},
 				Amount: &types.Amount{
 					Value:    new(big.Int).Neg(call.Value).String(),
-					Currency: AvaxCurrency,
+					Currency: ActiveCurrency,
 				},
 				Metadata: metadata,
 			}
@@ -311,7 +311,7 @@ func traceOps(trace []*client.FlatCall, startIndex int) []*types.Operation {
 				},
 				Amount: &types.Amount{
 					Value:    call.Value.String(),
-					Currency: AvaxCurrency,
+					Currency: ActiveCurrency,
 				},
 				Metadata: metadata,
 			}
@@ -350,7 +350,7 @@ func traceOps(trace []*client.FlatCall, startIndex int) []*types.Operation {
 			},
 			Amount: &types.Amount{
 				Value:    new(big.Int).Neg(val).String(),
-				Currency: AvaxCurrency,
+				Currency: ActiveCurrency,
 			},
 		})
 	}

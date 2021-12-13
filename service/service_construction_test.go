@@ -143,6 +143,7 @@ func forceMarshalMap(t *testing.T, i interface{}) map[string]interface{} {
 }
 
 func TestPreprocessMetadata(t *testing.T) {
+	mapper.ActiveCurrency = mapper.SongbirdCurrency
 	ctx := context.Background()
 	client := &mocks.Client{}
 	networkIdentifier := &types.NetworkIdentifier{
@@ -153,7 +154,7 @@ func TestPreprocessMetadata(t *testing.T) {
 		config: &Config{Mode: ModeOnline},
 		client: client,
 	}
-	intent := `[{"operation_identifier":{"index":0},"type":"CALL","account":{"address":"0xe3a5B4d7f79d64088C8d4ef153A7DDe2B2d47309"},"amount":{"value":"-42894881044106498","currency":{"symbol":"AVAX","decimals":18}}},{"operation_identifier":{"index":1},"type":"CALL","account":{"address":"0x57B414a0332B5CaB885a451c2a28a07d1e9b8a8d"},"amount":{"value":"42894881044106498","currency":{"symbol":"AVAX","decimals":18}}}]` //nolint
+	intent := `[{"operation_identifier":{"index":0},"type":"CALL","account":{"address":"0xe3a5B4d7f79d64088C8d4ef153A7DDe2B2d47309"},"amount":{"value":"-42894881044106498","currency":{"symbol":"SGB","decimals":18}}},{"operation_identifier":{"index":1},"type":"CALL","account":{"address":"0x57B414a0332B5CaB885a451c2a28a07d1e9b8a8d"},"amount":{"value":"42894881044106498","currency":{"symbol":"SGB","decimals":18}}}]` //nolint
 
 	t.Run("basic flow", func(t *testing.T) {
 		var ops []*types.Operation
@@ -218,7 +219,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "21001000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
@@ -264,7 +265,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "21000000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
@@ -329,7 +330,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "23100000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
@@ -396,7 +397,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "23100000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
@@ -467,7 +468,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "23100000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
@@ -532,7 +533,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "23100000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
@@ -593,7 +594,7 @@ func TestPreprocessMetadata(t *testing.T) {
 			SuggestedFee: []*types.Amount{
 				{
 					Value:    "44000000000000",
-					Currency: mapper.AvaxCurrency,
+					Currency: mapper.SongbirdCurrency,
 				},
 			},
 		}, metadataResponse)
