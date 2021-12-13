@@ -8,7 +8,7 @@ require (
 	github.com/decred/dcrd/dcrec/secp256k1/v3 v3.0.0 // indirect
 	github.com/ethereum/go-ethereum v1.10.12
 	github.com/flare-foundation/coreth v0.1.8
-	github.com/flare-foundation/flare v0.3.3
+	github.com/flare-foundation/flare v0.3.4
 	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/gorilla/rpc v1.2.0
 	github.com/prometheus/client_golang v1.8.0 // indirect

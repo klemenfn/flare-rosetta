@@ -11,7 +11,7 @@ DOCKER_ORG          ?= flare-foundation
 DOCKER_IMAGE        ?= ${DOCKER_ORG}/${PROJECT}
 DOCKER_LABEL        ?= latest
 DOCKER_TAG          ?= ${DOCKER_IMAGE}:${DOCKER_LABEL}
-FLARE_VERSION   	?= v0.3.3
+FLARE_VERSION   	?= v0.3.4
 
 build:
 	go build -o ./rosetta-server ./cmd/server
@@ -40,6 +40,9 @@ run-testnet:
 		-e FLARE_NETWORK=Songbird \
 		-e FLARE_CHAIN=19 \
 		-e FLARE_MODE=online \
+		-e FBA_VALs=songbird_validators.json \
+		-e BOOTSTRAP_IP=34.107.27.8:9651 \
+		-e BOOTSTRAP_ID=NodeID-FrJSSUkJ5m7SgNpz5zrPEZZ5EQ4qBaXjR \
 		--name flare-testnet \
 		-p 8080:8080 \
 		-p 9650:9650 \
@@ -70,6 +73,7 @@ run-mainnet:
 		-e FLARE_NETWORK=Flare \
 		-e FLARE_CHAIN=14 \
 		-e FLARE_MODE=online \
+		-e FBA_VALs=flare_validators.json \
 		--name flare-mainnet \
 		-p 8080:8080 \
 		-p 9650:9650 \

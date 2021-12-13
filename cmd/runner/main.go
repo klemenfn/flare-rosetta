@@ -23,6 +23,8 @@ var (
 	flareConfig   string
 	rosettaBin    string
 	rosettaConfig string
+	bootstrapIP   string
+	bootstrapID   string
 )
 
 func init() {
@@ -31,6 +33,8 @@ func init() {
 	flag.StringVar(&flareConfig, "flare-config", "", "Path to flare config")
 	flag.StringVar(&rosettaBin, "rosetta-bin", "", "Path to rosetta binary")
 	flag.StringVar(&rosettaConfig, "rosetta-config", "", "Path to rosetta config")
+	flag.StringVar(&bootstrapIP, "bootstrap-ip", "", "Node IP for bootstrapping")
+	flag.StringVar(&bootstrapID, "bootstrap-id", "", "Node ID for bootstrapping")
 	flag.Parse()
 
 	if !(mode == online || mode == offline) {
@@ -63,7 +67,7 @@ func main() {
 	if mode == online {
 		g.Go(func() error {
 			defer cancel()
-			return startCommand(ctx, flareBin, "--config-file", flareConfig)
+			return startCommand(ctx, flareBin, "--config-file", flareConfig, "--bootstrap-ips", bootstrapIP, "--bootstrap-ids", bootstrapID)
 		})
 	}
 

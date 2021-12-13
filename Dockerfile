@@ -25,10 +25,6 @@ RUN git clone https://github.com/flare-foundation/flare-rosetta.git \
 
 WORKDIR /go/src/github.com/flare-foundation/flare-rosetta
 
-ENV CGO_ENABLED=1
-ENV GOARCH=amd64
-ENV GOOS=linux
-
 RUN git checkout $ROSETTA_VERSION && \
     go mod download
 
@@ -57,6 +53,11 @@ COPY --from=flare \
 COPY --from=flare \
   /go/src/github.com/flare-foundation/flare/build/plugins/evm \
   /app/plugins/evm
+
+# Install list of FBA validators
+COPY --from=flare \
+  /go/src/github.com/flare-foundation/flare/scripts/configs/songbird/fba_validators.json \
+  /app/songbird_validators.json
 
 # Install rosetta server
 COPY --from=rosetta \

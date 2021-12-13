@@ -1,6 +1,6 @@
 # Flare Rosetta
 
-[Rosetta][1] server implementation for the [Flare][2] Network.
+Rosetta server implementation for the Flare Network.
 
 ## Requirements
 

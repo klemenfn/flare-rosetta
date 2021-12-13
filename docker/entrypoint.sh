@@ -59,4 +59,6 @@ exec /app/rosetta-runner \
   -flare-bin /app/flare \
   -flare-config /app/flare-config.json \
   -rosetta-bin /app/rosetta-server \
-  -rosetta-config rosetta-config.json
+  -rosetta-config rosetta-config.json \
+  -bootstrap-ip $BOOTSTRAP_IP \
+  -bootstrap-id $BOOTSTRAP_ID
