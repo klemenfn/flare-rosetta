@@ -1,0 +1,6 @@
+{
+  "mode": "online",
+  "rpc_endpoint": "https://flare-api.flare.network",
+  "network_name": "Flare",
+  "genesis_block_hash" :"0xf501834f1cfce08939acb0feadb11ca0a94d806c5bedb6700a771fc27d2f1068"
+}

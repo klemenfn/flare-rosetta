@@ -1,0 +1,6 @@
+{
+  "mode": "online",
+  "rpc_endpoint": "http://127.0.0.1:9650",
+  "network_name": "LocalFlare",
+  "genesis_block_hash" :"0xe52d7b6d9b04567960ab6d79bf4657a3cecec3ef73c40c6205d1edf06c1a2573"
+}
