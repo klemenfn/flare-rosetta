@@ -27,3 +27,17 @@ This local network can be run on your machine by following the instructions on t
 ```
 ./scripts/rosetta-server.sh localflare
 ```
+
+# Docker
+
+Use command argument to specify the chain config file to use.
+
+```
+docker run -p 8080:8080 flarefoundation/flare-rosetta <flare|costwo>
+```
+
+You can override the default image configs with a mount to `/app/config`:
+
+```
+docker run -p 8080:8080 -v "${PWD}/config":/app/config flarefoundation/flare-rosetta flare
+```
